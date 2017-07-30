@@ -16,8 +16,7 @@ public class JHannanumNLP implements NLP {
 	
 	@Override
 	public List<String> getWordList(String text) {
-		workflow.appendPlainTextProcessor(new SentenceSegmentor(), null); 		// 문장필터
-		workflow.appendPlainTextProcessor(new InformalSentenceFilter(), null);  // 비형식 문장 필터
+		// 준비중
 		return null;
 	}
 	

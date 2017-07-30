@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.controller.CommandAction;
 
-public class MainPageAction implements CommandAction {
+public class NotFoundAction implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		return "index.jsp";
+		return "404.jsp";
 	}
-
+	
 }

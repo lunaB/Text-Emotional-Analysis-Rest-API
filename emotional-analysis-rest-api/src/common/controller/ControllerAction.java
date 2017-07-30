@@ -57,12 +57,13 @@ public class ControllerAction extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
 		requestPro(request, response);
 	}
 	
 	
 	private void requestPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
 		String view = null;
         CommandAction com = null;
         try {
@@ -76,7 +77,7 @@ public class ControllerAction extends HttpServlet{
             System.out.println(command);
             if (com == null) {
             	// 404 
-                return;
+            	return;
             }
             
             view = com.requestPro(request, response);
@@ -88,6 +89,7 @@ public class ControllerAction extends HttpServlet{
         } catch (Throwable e) {
         	throw new ServletException(e); 
         }
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath+view);
         dispatcher.forward(request, response);
     }

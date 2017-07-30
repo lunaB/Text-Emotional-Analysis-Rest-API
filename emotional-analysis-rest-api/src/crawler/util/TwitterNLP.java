@@ -1,5 +1,6 @@
 package crawler.util;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,20 +24,25 @@ public class TwitterNLP implements NLP {
         List<KoreanTokenJava> phrases = TwitterKoreanProcessorJava.tokensToJavaKoreanTokenList(tokens);
         Iterator<KoreanTokenJava> it = phrases.iterator();
         
+        List<String> outputList = new ArrayList<String>();
         while(it.hasNext()){
         	KoreanTokenJava kp = it.next();
-        	if( kp.getPos().compareTo(KoreanPosJava.Adjective)==0 ||	//형용사
-        		kp.getPos().compareTo(KoreanPosJava.Adverb)==0 ||		//부사
-        		kp.getPos().compareTo(KoreanPosJava.Noun)==0 ||			//명사
-        		kp.getPos().compareTo(KoreanPosJava.Verb)==0       		//동사 		
-        		){
-        		System.out.println(kp.getText());
-            	System.out.println(kp.getPos());
+        	if(filter(kp)){
+        		outputList.add(kp.getText());
         	}
-//        	System.out.println(kp.getText());
-//        	System.out.println(kp.getPos());
         }
-		return null;
+        return outputList;
 	}
 	
+	private boolean filter(KoreanTokenJava text){
+		switch (text.getPos()) {
+		case Adjective:		//형용사
+		case Adverb:		//부사
+		case Noun:			//명사
+		case Verb:			//동사
+	    	return true;
+		default:
+			return false;
+		}
+	}
 }
