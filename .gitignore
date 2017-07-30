@@ -1,2 +1,2 @@
-/emotional-analysis-restful-api/build
-/emotional-analysis-restful-api/src/util/connection
+*.class
+model/*.java
