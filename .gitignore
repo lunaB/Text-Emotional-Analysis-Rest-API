@@ -1,1 +1,2 @@
-*.log
+/emotional-analysis-rest-api/build/
+/emotion-analysis-restful-api/src/util/connection
