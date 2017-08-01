@@ -1,0 +1,31 @@
+{
+    "name" : "Emotion processing rest api",
+    "version" : "1.0",
+    "result" : {
+        "text" : "이 영화 더럽게 재미 없다.",
+        "emotion_score" : "1.23"
+    },
+    "words" : [
+        {
+            "word" : "영화",
+            "type" : "명사",
+            "emotion_score" : "8.3"
+        },
+        {
+            "word" : "영화",
+            "type" : "명사",
+            "emotion_score" : "8.3"
+        },
+        {
+            "word" : "영화",
+            "type" : "명사",
+            "emotion_score" : "8.3"
+        },
+        {
+            "word" : "영화",
+            "type" : "명사",
+            "emotion_score" : "8.3"
+        }
+    ], 
+    "description" : "github.com/lunab 나영채의 고등학교 2학년 1학기 프로젝트"
+}
