@@ -12,27 +12,18 @@ public class ApiAction implements CommandAction {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
-		System.out.println(request.getMethod());
+		ApiSimple ju = new ApiSimple();
 		
 		if(request.getMethod().equals("GET")){
-			ApiSimple ju = new ApiSimple();
-			request.setAttribute("data", ju.createJsonData());
+			ju.setValue(request.getHeader("client-id"), request.getHeader("client-secret"), "text");
+			request.setAttribute("data", ju.process());
 			return "api/data.jsp";
 		}else if(request.getMethod().equals("POST")){
 			
-			Enumeration<String> headers = request.getHeaderNames();
-			
-			// db select id & secret
-			System.out.println(request.getHeader("client-id"));
-			System.out.println(request.getHeader("client-secret"));
-			
-//			while(headers.hasMoreElements()){
-//				String headerName = headers.nextElement();
-//				String value = request.getHeader(headerName);
-//				System.out.println(headerName+" : "+ value);
-//			}
-			return "json/data.jsp";
+			ju.setValue(request.getHeader("client-id"), request.getHeader("client-secret"), "text");
+			request.setAttribute("data", ju.process());
+			return "api/data.jsp";
 		}
-		return "error/no.jsp";
+		return "error/404.jsp";
 	}
 }
