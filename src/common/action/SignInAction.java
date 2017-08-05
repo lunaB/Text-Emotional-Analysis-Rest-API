@@ -5,10 +5,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.controller.CommandAction;
 
-public class NoneAction implements CommandAction {
+public class SignInAction implements CommandAction {
+
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		String uri = request.getRequestURI();
-		return uri+".jsp";
+		if(request.getMethod().equals("GET")){
+			return "signIn.jsp";
+		}else if(request.getMethod().equals("POST")){
+			System.out.println("p");
+		}
+		return null;
 	}
+	
 }

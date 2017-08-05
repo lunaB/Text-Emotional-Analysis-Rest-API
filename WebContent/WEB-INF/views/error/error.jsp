@@ -5,11 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-	<h1>main page</h1>
-	<a href="signin" class="btn btn-info">sign in</a>
-	<a href="signup" class="btn btn-info">sign up</a>
+	<h1>무슨 오류인지 모름</h1>
+	<p>관리자에게 문의 luna20617@gmail.com</p>
 </body>
 </html>

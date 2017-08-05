@@ -14,16 +14,14 @@ public class ApiAction implements CommandAction {
 		
 		ApiSimple ju = new ApiSimple();
 		
-		if(request.getMethod().equals("GET")){
-			ju.setValue(request.getHeader("client-id"), request.getHeader("client-secret"), "text");
+		if(request.getMethod().equals("POST")){
+			String text = request.getParameter("text");
+			ju.setValue(request.getHeader("client-id"), request.getHeader("client-secret"), text);
 			request.setAttribute("data", ju.process());
 			return "api/data.jsp";
-		}else if(request.getMethod().equals("POST")){
-			
-			ju.setValue(request.getHeader("client-id"), request.getHeader("client-secret"), "text");
-			request.setAttribute("data", ju.process());
+		}else{
+			request.setAttribute("data", ju.errorJson(1));
 			return "api/data.jsp";
 		}
-		return "error/404.jsp";
 	}
 }

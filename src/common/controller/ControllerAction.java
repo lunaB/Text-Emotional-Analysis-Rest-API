@@ -81,6 +81,9 @@ public class ControllerAction extends HttpServlet{
             	com = new NotFoundAction();
             }
             view = com.requestPro(request, response);	
+            if(view == null){
+            	view = "error/error.jsp";
+            }
         } catch (Throwable e) {
         	throw new ServletException(e); 
         }

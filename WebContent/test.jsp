@@ -19,18 +19,19 @@
 	
 	<script>
 		function cl(){
-			data = "adsfa";
+			t = "adsfa";
 			console.log('debug');
 			$.ajax({
 				url: "api",
 				type: "POST",
 				headers : {"client-id" : "1234", "client-secret" : "5678"},
-			    data : {"data":data},
+			    data : {"text":t},
 				success: function(data){
 				    console.log(data);
 			    	console.log(data.name);
 			    	console.log(data.result.text);
 			    	console.log(data.result.emotion_score);
+			    	console.log(data.result.errorCode);
 				}
 			});
 			console.log("debug");

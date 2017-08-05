@@ -8,8 +8,18 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-	<h1>main page</h1>
-	<a href="signin" class="btn btn-info">sign in</a>
-	<a href="signup" class="btn btn-info">sign up</a>
+	<section class="container">
+		<h1>Api Error Info</h1>
+		<table class="table">
+			<tr>
+				<th>에러번호</th>
+				<th>사유</th>
+			</tr>
+			<tr>
+				<td>01</td>
+				<td>post가 아닌 요청</td>
+			</tr>
+		</table>
+	</section>
 </body>
 </html>
