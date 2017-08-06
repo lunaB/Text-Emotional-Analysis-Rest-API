@@ -88,8 +88,11 @@ public class ControllerAction extends HttpServlet{
         	throw new ServletException(e); 
         }
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath+view);
-        dispatcher.forward(request, response);
+        // https://stackoverflow.com/questions/2123514/java-lang-illegalstateexception-cannot-forward-sendredirect-create-session
+        if(!response.isCommitted()){
+        	RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath+view);
+			dispatcher.forward(request, response);
+        }
     }
 	
 	

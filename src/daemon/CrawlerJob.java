@@ -2,19 +2,20 @@ package daemon;
 
 import java.util.TimerTask;
 
-import crawler.Crawler;
+import crawler.NaverMovieCrawler;
 
 public class CrawlerJob extends TimerTask{
 
-	private Crawler wtc;
+	private NaverMovieCrawler nmc;
 	
 	public CrawlerJob(String webDriverPath) {
-		wtc = new Crawler(webDriverPath);
+		nmc = new NaverMovieCrawler();
+		
 	}
 	
 	@Override
 	public void run() {
-		wtc.init();
+		nmc.process();
 	}
 	
 }

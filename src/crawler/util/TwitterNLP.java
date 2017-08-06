@@ -36,10 +36,8 @@ public class TwitterNLP implements NLP {
 	
 	private boolean filter(KoreanTokenJava text){
 		switch (text.getPos()) {
-		case Adjective:		//형용사
-		case Adverb:		//부사
-		case Noun:			//명사
-		case Verb:			//동사
+		case Adjective:		//형용사	(감성어)
+		case Verb:			//동사		(감성어)
 	    	return true;
 		default:
 			return false;

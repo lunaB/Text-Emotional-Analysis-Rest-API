@@ -17,7 +17,7 @@ public class CrawlerDaemon extends HttpServlet{
 		job = new CrawlerJob(webDriverPath);
 		scheduler = new Timer();
 		
-		scheduler.scheduleAtFixedRate(job, 1000*10, 1000*60*10);
+		scheduler.scheduleAtFixedRate(job, 1000*10, 1000*60*10); //10초 뒤부터 10분에 1번씩
 	}
 	
 	@Override

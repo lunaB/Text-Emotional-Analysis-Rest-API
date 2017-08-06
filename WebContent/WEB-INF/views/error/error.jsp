@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>무슨 오류인지 모름</h1>
+	<h1>ERROR</h1>
 	<p>관리자에게 문의 luna20617@gmail.com</p>
 </body>
 </html>

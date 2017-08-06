@@ -15,7 +15,7 @@
 		</c:if>
 		<h1>Sign Up</h1>
 		<div class="col-xs-4">
-			<form action="signup" method="post" class="form-horizontal">
+			<form action="signup" method="POST" class="form-horizontal">
 				<div class="form-group">
 			    	<label for="inputID" class="col-sm-2 control-label">ID</label>
 			    	<div class="col-sm-10">
@@ -30,7 +30,7 @@
 			  	</div>
 			  	<div class="form-group">
 			    	<div class="col-sm-offset-2 col-sm-10">
-			      		<button type="submit" class="btn btn-default">Sign in</button>
+			      		<button type="submit" class="btn btn-default">Sign Up</button>
 			    	</div>
 			  	</div>
 			</form>

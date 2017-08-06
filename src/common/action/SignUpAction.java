@@ -11,7 +11,9 @@ public class SignUpAction implements CommandAction {
 	
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		if(request.getMethod().equals("GET")){
+		if(request.getSession().getAttribute("signIn") != null){
+			return null;
+		}else if(request.getMethod().equals("GET")){
 			return "signUp.jsp";
 		}else if(request.getMethod().equals("POST")){
 			String id = request.getParameter("id");
@@ -22,11 +24,11 @@ public class SignUpAction implements CommandAction {
 			String clientSecret = apiUtil.createClientSecret();
 			int defaultRating = 1;
 			
-			UserDAO userDAO = new UserDAO();
+			UserDAO userDAO = UserDAO.getInstance();
 			boolean insertOK = userDAO.insert(id, pw, clientId, clientSecret, defaultRating);
 			
 			if(insertOK){
-				return "index.jsp";
+				response.sendRedirect("/");
 			}else{
 				request.setAttribute("signUpFail", true);
 				return "signUp.jsp";

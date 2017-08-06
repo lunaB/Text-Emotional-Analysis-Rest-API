@@ -20,28 +20,27 @@ public class NaverMovieCrawler {
 		nlp = new TwitterNLP();
 	}
 	
-	public int run(){
+	public void process(){
 		try {
 			Document doc = Jsoup.connect("http://movie.naver.com/movie/point/af/list.nhn?&page=1").get();
 			Elements contents = doc.select("table.list_netizen>tbody>tr");
-			for(Element ele: contents){
+			for(Element ele : contents){
+				int num = Integer.parseInt(ele.select("td.ac").text());
 				int star = Integer.parseInt(ele.select("td.point").text());
-				String title = ele.select("td.title>a.movie").text();
+//				String title = ele.select("td.title>a.movie").text();
 				String comment = ele.select("td.title").text();
-				comment = comment.substring(0,comment.length()-3); //뒤에 "(space)신고" 제거
+				comment = comment.substring(0,comment.length()-3); 	//뒤에 "(space)신고" 제거
 				
-				List<String> words = nlp.getWordList(comment);	//필터로 거른 단어리스트
+				List<String> words = nlp.getWordList(comment);		//필터로 거른 단어리스트
 				Iterator<String> it = words.iterator();
+				System.out.println(num);
 				while(it.hasNext()){
-					
-					it.next();
+					String word = it.next();
 				}
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return 1;
 	}
 	
 }
