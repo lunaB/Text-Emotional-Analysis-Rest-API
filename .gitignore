@@ -1,2 +1,10 @@
+# .class
 build/
-model/
+
+# db
+DBCPInit.java
+
+# Eclipse
+.classpath
+.project
+.settings/
