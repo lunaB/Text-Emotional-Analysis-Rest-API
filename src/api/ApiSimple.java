@@ -2,8 +2,7 @@ package api;
 
 import java.util.List;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 public class ApiSimple {
 	
@@ -24,32 +23,26 @@ public class ApiSimple {
 	
 	public String errorJson(int errorCode){
 		JSONObject obj = new JSONObject();
-		try {
-			obj.put("name", "Emotion processing rest api");
-			obj.put("version", "1.0");
-			JSONObject result = new JSONObject();
-			result.put("errorCode", errorCode);
-			obj.put("result", result);
-			obj.put("description", "github.com/lunab 나영채의 고등학교 2학년 1학기 프로젝트");
-		}catch(JSONException e){
-			e.printStackTrace();
-		}
+		obj.put("name", "Emotion processing rest api");
+		obj.put("version", "1.0");
+		JSONObject result = new JSONObject();
+		result.put("errorCode", errorCode);
+		obj.put("result", result);
+		obj.put("description", "github.com/lunab 나영채의 고등학교 2학년 1학기 프로젝트");
+	
 		return obj.toString();
 	}
 	
 	private String createJSON(double score){
 		JSONObject obj = new JSONObject();
-		try {
-			obj.put("name", "Emotion processing rest api");
-			obj.put("version", "1.0");
-			JSONObject result = new JSONObject();
-			result.put("text", text);
-			result.put("emotion_score", score);
-			obj.put("result", result);
-			obj.put("description", "github.com/lunab 나영채의 고등학교 2학년 1학기 프로젝트");
-		}catch(JSONException e){
-			e.printStackTrace();
-		}
+		obj.put("name", "Emotion processing rest api");
+		obj.put("version", "1.0");
+		JSONObject result = new JSONObject();
+		result.put("text", text);
+		result.put("emotion_score", score);
+		obj.put("result", result);
+		obj.put("description", "github.com/lunab 나영채의 고등학교 2학년 1학기 프로젝트");
+	
 		return obj.toString();
 	}
 }

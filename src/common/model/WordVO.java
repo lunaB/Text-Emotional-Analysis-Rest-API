@@ -3,16 +3,10 @@ package common.model;
 import java.io.Serializable;
 
 public class WordVO implements Serializable{
-	private int word_no;
 	private String word;
 	private int point;
-	private int cnt;
-	public int getWord_no() {
-		return word_no;
-	}
-	public void setWord_no(int word_no) {
-		this.word_no = word_no;
-	}
+	private float cnt;
+	
 	public String getWord() {
 		return word;
 	}
@@ -25,12 +19,10 @@ public class WordVO implements Serializable{
 	public void setPoint(int point) {
 		this.point = point;
 	}
-	public int getCnt() {
+	public float getCnt() {
 		return cnt;
 	}
-	public void setCnt(int cnt) {
+	public void setCnt(float cnt) {
 		this.cnt = cnt;
 	}
-	
-	
 }

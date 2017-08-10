@@ -34,10 +34,11 @@ public class CrawlerDAO {
 		PreparedStatement pstmt = null;
 		try {
 			conn = ConnectionProvider.getConnection();
-			pstmt = conn.prepareStatement("INSERT INTO word VALUES(NULL,?,?,?)");
+//			pstmt = conn.prepareStatement("INSERT INTO word VALUES ('예쁘', 8.0, 1) ON DUPLICATE KEY UPDATE cnt = cnt+1, point = ((point*cnt)+8.0)/(cnt+1)");
+			pstmt = conn.prepareStatement("INSERT INTO word VALUES (?, ?, 1) ON DUPLICATE KEY UPDATE cnt = cnt+1, point = ((point*cnt)+?)/(cnt+1)");
 			pstmt.setString(1, vo.getWord());
-			pstmt.setInt(2, vo.getPoint());
-			pstmt.setInt(3, vo.getCnt());
+			pstmt.setFloat(2, vo.getPoint());
+			pstmt.setFloat(3, vo.getPoint());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -45,7 +46,6 @@ public class CrawlerDAO {
 	}
 	
 	public String lastCrawlerNo(){
-		
 		return null;
 	}
 }
