@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import common.model.jdbc.ConnectionProvider;
+import common.model.jdbc.JdbcUtil;
 
 public class UserDAO {
 	
@@ -33,13 +34,13 @@ public class UserDAO {
 				pstmt.setString(4, clientSecret);
 				pstmt.setInt(5, rating);
 				if(pstmt.executeUpdate()!=0){
-					close(conn, pstmt, rs);
+					JdbcUtil.close(conn, pstmt, rs);
 					return true;
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
-				close(conn, pstmt, rs);
+				JdbcUtil.close(conn, pstmt, rs);
 			}
 		}
 		return false;
@@ -58,13 +59,13 @@ public class UserDAO {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
-				close(conn, pstmt, rs);
+				JdbcUtil.close(conn, pstmt, rs);
 				return true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(conn, pstmt, rs);
+			JdbcUtil.close(conn, pstmt, rs);
 		}
 		return false;
 	}
@@ -83,20 +84,14 @@ public class UserDAO {
 			
 			rs = pstmt.executeQuery();
 			if(rs.next()){
-				close(conn, pstmt, rs);
+				JdbcUtil.close(conn, pstmt, rs);
 				return true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(conn, pstmt, rs);
+			JdbcUtil.close(conn, pstmt, rs);
 		}
 		return false;
-	}
-	
-	private void close(Connection conn, PreparedStatement pstmt, ResultSet rs){
-		if(conn != null) try{conn.close();}catch(SQLException e){e.printStackTrace();}
-		if(pstmt != null) try{pstmt.close();}catch(SQLException e){e.printStackTrace();}
-		if(rs != null) try{rs.close();}catch(SQLException e){e.printStackTrace();}
 	}
 }

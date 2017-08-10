@@ -14,12 +14,12 @@
 		<li><a href="register.do">회원가입</a></li>
 		<li><a href="list.do">list</a></li>
 	</ul>
-	
+	<input type="text" id="in"/>
 	<button onclick="cl()">button</button>
 	
 	<script>
-		function cl(){
-			t = "adsfa";
+		function cl(t){
+			console.log(t);
 			console.log('debug');
 			$.ajax({
 				url: "api",

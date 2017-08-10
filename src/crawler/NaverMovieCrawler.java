@@ -27,7 +27,7 @@ public class NaverMovieCrawler {
 		
 		try {
 			// naver 최대  1000페이지
-			for(int i=0;i<100;i++){
+			for(int i=100;i>0;i--){
 				Document doc = Jsoup.connect("http://movie.naver.com/movie/point/af/list.nhn?&page="+i).get();
 				Elements contents = doc.select("table.list_netizen>tbody>tr");
 				for(Element ele : contents){
