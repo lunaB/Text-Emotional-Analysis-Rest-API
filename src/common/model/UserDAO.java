@@ -18,6 +18,10 @@ public class UserDAO {
 		return userDAO;
 	}
 	
+	public void usageUpdate(int textLength){
+		
+	}
+	
 	// sign up
 	public boolean insert(String id, String pw, String clientId, String clientSecret, int rating){
 		Connection conn = null;
