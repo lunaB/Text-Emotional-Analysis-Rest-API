@@ -133,13 +133,37 @@ client-secret: { 발급받은 client-secret 값 }</pre>
    "name":"Emotion processing rest api",
    "description":"github.com/lunab 나영채의 고등학교 2학년 1학기 프로젝트"
 }</pre>
-		<br>
+			<hr>
+			<br>
+			<h3>6.에러</h3>
+			<hr>
+			<table class="table">
+				<thead>
+					<tr class="info">
+						<th>에러코드</th>
+						<th>설명</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>001</td>
+						<td>post가 아닌 다른 요청</td>
+					</tr>
+					<tr>
+						<td>002</td>
+						<td>사용량 한도초과</td>
+					</tr>
+					<tr>
+						<td>003</td>
+						<td>인증 키가 일치하지 않음</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</section>
 	<hr>
 	<footer class="container">
 		<p><b>열심히 만들었습니다.</b> 양영디지털 고등학교 2학년 나영채</p><br>
-		
 	</footer>
 </body>
 </html>

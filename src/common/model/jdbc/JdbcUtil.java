@@ -14,6 +14,11 @@ public class JdbcUtil {
 		if(rs != null) try{rs.close();}catch(SQLException e){e.printStackTrace();}
 	}
 	
+	public static void close(Connection conn, PreparedStatement pstmt){
+		if(conn != null) try{conn.close();}catch(SQLException e){e.printStackTrace();}
+		if(pstmt != null) try{pstmt.close();}catch(SQLException e){e.printStackTrace();}
+	}
+	
 	public static void close(ResultSet rs) {
 		if (rs != null) {
 			try {

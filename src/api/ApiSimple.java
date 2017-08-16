@@ -7,30 +7,41 @@ import java.util.Map;
 import org.json.simple.JSONObject;
 
 import common.model.CrawlerDAO;
+import common.model.UsageVO;
+import common.model.UserDAO;
 import common.model.WordDAO;
 import crawler.util.NLP;
 import crawler.util.TwitterNLP;
 
 public class ApiSimple {
 	
-	String id = null;
-	String secret = null;
+	String clientId = null;
+	String clientSecret = null;
 	String text = null;
 	
 	public void setValue(String id, String secret, String text) {
-		this.id = id;
-		this.secret = secret;
+		this.clientId = id;
+		this.clientSecret = secret;
 		this.text = text;
 	}
 	
 	public String process(){
 		NLP nlp = new TwitterNLP();
-		
 		List<String> textList = nlp.process(text);
+		UserDAO userDAO = UserDAO.getInstance();
+		UsageVO usageVO = userDAO.usageSelectApi(clientId, clientSecret);
 		
-		WordDAO wordDao = WordDAO.getInstance();
-		double score = wordDao.selectText(textList);
-		return createJSON(score);
+		if(usageVO.getTotal()-(usageVO.getUsage()+text.length()) >= 0){
+			userDAO.usageUpdate(text.length(), clientId, clientSecret);
+			
+			WordDAO wordDAO = WordDAO.getInstance();
+			double score = wordDAO.selectText(textList);
+			return createJSON(score);
+		}else if(usageVO.getTotal() == 0){
+			return errorJson(3);
+		}else {
+			return errorJson(2);
+		}
 	}
 	
 	public String errorJson(int errorCode){

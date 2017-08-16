@@ -19,7 +19,7 @@ public class SignInAction implements CommandAction {
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
 			
-			if(dao.select(id, pw)){
+			if(dao.signInSelect(id, pw)){
 				request.getSession().setAttribute("signIn", id);
 				response.sendRedirect("/");
 			}else {

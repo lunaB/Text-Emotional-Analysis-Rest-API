@@ -14,7 +14,8 @@
 	</style>
 	<script>
 		var point = ${total}; // 총량
-		var percent = ${per}; //퍼센트
+		var usage = ${usage}; // 사용량
+		var percent = usage/point*100;
 	</script>
 </head>
 <body>
@@ -26,10 +27,30 @@
 		</div>
 	</header>
 	<section class="container" style="height:500px;">
-    	<div id="canvasO" class="col-xs-12" style="height: 100%;">
+    	<div id="canvasO" class="col-xs-12" style="height: 100%; text-align:center;">
 	       	<!--canvas-->
 		</div>
     </section>
+    <section class="container">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label style="font-size:24px; color:#eee" class="col-sm-2 control-label">Client Id</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" value="${clientId}" readonly>
+				</div>
+			</div>
+			<div class="form-group">
+				<label style="font-size:24px; color:#eee" class="col-sm-2 control-label">Client Secret</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" value="${clientSecret}" readonly>
+				</div>
+			</div>
+		</form>
+	</section>
+	<hr>
+	<footer class="container">
+		<p style="color:#fff"><b>열심히 만들었습니다.</b> 양영디지털 고등학교 2학년 나영채</p><br>
+	</footer>
 	<script>
 		window.onload = load();
 		function load(){
@@ -82,7 +103,7 @@
 			
 			ctx.fillStyle = "#fff"
 			ctx.font = "25px 맑은고딕";
-			ctx.fillText(point+" 남음",c.width-150,c.height-30);
+			ctx.fillText(usage+" / "+point,c.width-150,c.height-30);
 			
 			var vTmp = 0;
 					

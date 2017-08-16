@@ -9,12 +9,18 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+	<header class="container">
+		<div class="jumbotron">
+			<h1 class="display-3">Sign Up</h1>
+			<p class="lead">회원가입 하세요!</p>
+			<a class="btn btn-primary btn-lg" href="/">Back</a>
+		</div>
+	</header>
 	<section class="container">
 		<c:if test="${param.signUpFail}">
 			<div class="col-xs-12 bg-info">가입에 실패하였습니다.</div>
 		</c:if>
-		<h1>Sign Up</h1>
-		<div class="col-xs-4">
+		<div class="col-xs-11">
 			<form action="signup" method="POST" class="form-horizontal">
 				<div class="form-group">
 			    	<label for="inputID" class="col-sm-2 control-label">ID</label>

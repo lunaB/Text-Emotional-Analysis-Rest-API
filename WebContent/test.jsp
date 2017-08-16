@@ -17,6 +17,9 @@
 	<section class="container">
 		<h3>Emotion processing restful api</h3>
 		<hr>
+		<input type="text" id="id" class="form-control" placeholder="client id">
+		<input type="text" id="se" class="form-control" placeholder="client secret">
+		<hr>
 		<textarea id="in" class="form-control" rows="4" placeholder="ex) 정말 더럽게 재미없다. 이딴 쓰래기 같은 영화는 없어져야함.&#13;&#10;       이렇게 재미있는 영화는 처음입니다. 끝까지 집중하며 봤어요."></textarea>
 		<hr>
 		<button type="button" class="btn btn-default" onclick="cl()" id="btn1">Submit</button>
@@ -30,10 +33,10 @@
 			$.ajax({
 				url: "api",
 				type: "POST",
-				headers : {"client-id" : "1234", "client-secret" : "5678"},
+				headers : {"client-id" : $("#id").val(), "client-secret" : $("#se").val()},
 			    data : {"text":t},
 				success: function(data){
-					console.log(data.toString());
+					console.log(data);
 					if(data.result.emotion_score != null){
 						$("#out").val(data.result.emotion_score);	
 					}else{
