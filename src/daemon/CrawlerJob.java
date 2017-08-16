@@ -15,7 +15,7 @@ public class CrawlerJob extends TimerTask{
 	
 	@Override
 	public void run() {
-		//nmc.process();
+		nmc.process();
 	}
 	
 }
