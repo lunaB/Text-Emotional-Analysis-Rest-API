@@ -1,6 +1,8 @@
 package common.model;
 
-public class UserVO {
+import java.io.Serializable;
+
+public class UserVO implements Serializable{
 	private int no;
 	private String uid;
 	private String upw;

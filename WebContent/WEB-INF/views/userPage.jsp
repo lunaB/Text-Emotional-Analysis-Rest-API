@@ -6,23 +6,27 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<title>::${ signIn }의 설정::</title>
-	<style>amount
+	<title>:: ${ signIn }의 설정 ::</title>
+	<style>
 		body {
 			background-color:#666;
 		}
 	</style>
 	<script>
-		var point = ${remain}; // 남은량
+		var point = ${total}; // 총량
 		var percent = ${per}; //퍼센트
 	</script>
 </head>
 <body>
-	<section class="container" style="height:500px;">
-		<div class="col-xs-6">
-		
+	<header class="container">
+		<div class="jumbotron">
+			<h1 class="display-3">My Page</h1>
+			<p class="lead">자신의 API 사용량을 조회 할 수 있는 공간입니다.</p>
+			<a class="btn btn-primary btn-lg" href="/">Back</a>
 		</div>
-    	<div id="canvasO" class="col-xs-6" style="height: 100%;">
+	</header>
+	<section class="container" style="height:500px;">
+    	<div id="canvasO" class="col-xs-12" style="height: 100%;">
 	       	<!--canvas-->
 		</div>
     </section>
@@ -84,16 +88,18 @@
 					
 			ctx.strokeStyle="#98B25C";
 			ctx.lineCap = "round";
-			var drawA = setInterval(function(){
-				vTmp++;
-				ctx.beginPath();
-				ctx.arc(x,y,radius,sa,(vTmp-90)*Math.PI/180,false);
-				ctx.lineWidth = 30;
-				ctx.stroke();
-				ctx.closePath();
-				if(Math.floor(value) == vTmp)
-					clearInterval(drawA);
-			},6);
+			if(value != 0){
+				var drawA = setInterval(function(){
+					vTmp++;
+					ctx.beginPath();
+					ctx.arc(x,y,radius,sa,(vTmp-90)*Math.PI/180,false);
+					ctx.lineWidth = 30;
+					ctx.stroke();
+					ctx.closePath();
+					if(Math.floor(value) == vTmp)
+						clearInterval(drawA);
+				},6);	
+			}
 		}
 	</script>
 </body>

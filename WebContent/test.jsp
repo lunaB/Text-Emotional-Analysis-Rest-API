@@ -33,7 +33,7 @@
 				headers : {"client-id" : "1234", "client-secret" : "5678"},
 			    data : {"text":t},
 				success: function(data){
-					console.log(data);
+					console.log(data.toString());
 					if(data.result.emotion_score != null){
 						$("#out").val(data.result.emotion_score);	
 					}else{

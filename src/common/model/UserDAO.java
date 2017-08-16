@@ -22,6 +22,25 @@ public class UserDAO {
 		
 	}
 	
+	public UsageVO usageSelect(String id){
+		UsageVO usageVO = new UsageVO();
+		Connection conn;
+		String sql = "SELECT u.usage, r.total FROM user u, rate r WHERE u.uid=? AND u.rating = r.rating";
+		try {
+			conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()){
+				usageVO.setTotal(rs.getInt(2));
+				usageVO.setUsage(rs.getInt(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return usageVO;
+	}
+	
 	// sign up
 	public boolean insert(String id, String pw, String clientId, String clientSecret, int rating){
 		Connection conn = null;
